@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary2">#BDBDBD</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhite2">#D8D8D8</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorGameBG">#50000000</color>
+
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorPlayer">#045FB4</color>
+    <color name="colorAi">#B40404</color>
+</resources>
