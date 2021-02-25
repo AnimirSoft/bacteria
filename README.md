@@ -1,4 +1,4 @@
-# 세균전 게임 입니다.
+# 세균전 게임 입니다. (Android)
 
 - 2인 모드 지원
 - AI 와 대결 기능
@@ -19,3 +19,12 @@ P1은 파란색 P2는 빨간색 입니다.
 이런식으로 여러 턴을 지나 마지막까지 다 채워졌을때
 
 가장 많은 타일이 남은 Player가 승리 하게 됩니다.
+
+
+<스크린샷>
+
+안드로이드
+![bacteria_mobile](https://user-images.githubusercontent.com/25942272/109233948-21fc7300-780e-11eb-80f6-1975ae58a114.jpg){: width="50%" height="50%"}
+
+안드로이드 테블릿
+![bacteria_tablet](https://user-images.githubusercontent.com/25942272/109233965-26c12700-780e-11eb-8cf1-49313600260e.png){: width="50%" height="50%"}
