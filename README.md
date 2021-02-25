@@ -4,6 +4,7 @@
 - AI 와 대결 기능
 
 
+
 <설명>
 
 오른쪽 상단에 Player2 와 대결할것인지 AI 와 대결할것인지 선택할수 있습니다. 
@@ -21,10 +22,16 @@ P1은 파란색 P2는 빨간색 입니다.
 가장 많은 타일이 남은 Player가 승리 하게 됩니다.
 
 
+
 <스크린샷>
 
 안드로이드
-![bacteria_mobile](https://user-images.githubusercontent.com/25942272/109233948-21fc7300-780e-11eb-80f6-1975ae58a114.jpg){: width="50%" height="50%"}
 
-안드로이드 테블릿
-![bacteria_tablet](https://user-images.githubusercontent.com/25942272/109233965-26c12700-780e-11eb-8cf1-49313600260e.png){: width="50%" height="50%"}
+<left><img src="https://user-images.githubusercontent.com/25942272/109233948-21fc7300-780e-11eb-80f6-1975ae58a114.jpg" width="25%" height="25%"></left>
+
+
+
+
+안드로이드 태블릿
+
+<left><img src="https://user-images.githubusercontent.com/25942272/109233965-26c12700-780e-11eb-8cf1-49313600260e.png" width="40%" height="40%"></left>
