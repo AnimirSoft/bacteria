@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements MainConstance.Vie
         findViewById(R.id.orderP1).setVisibility(View.VISIBLE);
         findViewById(R.id.orderP2).setVisibility(View.INVISIBLE);
 
-
         String playerSwitch = mPresenter.getPlayerSwitch();
         if(playerSwitch.equals(mPresenter.getValueAI())){
             ((TextView)findViewById(R.id.textP2Name)).setText("AI : ");
@@ -41,13 +40,10 @@ public class MainActivity extends AppCompatActivity implements MainConstance.Vie
             ((TextView)findViewById(R.id.textP2Name)).setText("P2 : ");
             ((Switch)findViewById(R.id.playerAiSwitch)).setChecked(false);
         }
-
     }
-
 
     @Override
     public void showView(boolean firstPlayer, int[] gamePoints, boolean gamePlayFlag, boolean notMove) {
-
 
         // 게임 점수
         ((TextView)findViewById(R.id.textP1)).setText(String.valueOf(gamePoints[0]));
@@ -56,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements MainConstance.Vie
         if(gamePlayFlag == false){
             // 게임 끝
             findViewById(R.id.winnerLayout).setVisibility(View.VISIBLE);
-
             if(notMove){
                 ((TextView)findViewById(R.id.winnerText)).setText("Winner " + (mPresenter.getFirstPlayer() ? "P1" : "P2" + "\n" + "Not moveable") + " !!");
                 Toast.makeText(this, "Not moveable", Toast.LENGTH_SHORT).show();
@@ -75,8 +70,6 @@ public class MainActivity extends AppCompatActivity implements MainConstance.Vie
             findViewById(R.id.orderP2).setVisibility(View.VISIBLE);
         }
     }
-
-
 
     @OnClick({R.id.btnReSet, R.id.btnGameStart})
     public void onClick(View view){

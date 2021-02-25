@@ -5,7 +5,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -33,7 +35,6 @@ public class MainPresenter implements MainConstance.Presenter{
     private Context mContext = null;
     private int mBoardX, mBoardY;
 
-
     boolean move1CheckFlag = false, move2CheckFlag = false;
 
     private ArrayList<HashMap<String, Integer>> area1List = null;
@@ -50,8 +51,6 @@ public class MainPresenter implements MainConstance.Presenter{
     private final int AIHANDLER_END = 400;
 
     private final int AIHANDLER_TIME = 500;
-
-
 
     private MainPresenter() {}
     public static MainPresenter getInstance(){
@@ -80,11 +79,20 @@ public class MainPresenter implements MainConstance.Presenter{
         gamePointsTmp[0] = 0;
         gamePointsTmp[1] = 0;
 
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+
+        int screenX = display.getWidth();
+        int screenY = display.getHeight();
+
+        int size = ((((screenX > screenY ? screenY : screenX) / 100) * 90) / 7);
+
+
         for(int i = 0; i < mBoardX; i++){
             LinearLayout childLayout = new LinearLayout(mContext);
             for(int i2 = 0; i2 < mBoardY; i2++){
                 Button btn = new Button(mContext);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(150,150);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(size,size);
                 params.setMargins(1,1,1,1);
                 btn.setLayoutParams(params);
                 btn.setTag(i + "," + i2);
@@ -103,13 +111,11 @@ public class MainPresenter implements MainConstance.Presenter{
                 }
 
                 // P2 세팅
-
                 if(((i == 0 && i2 == mBoardY-1) || (i == 0 && i2 == mBoardY-2) || (i == 1 && i2 == mBoardY-1) || (i == 1 && i2 == mBoardY-2))
                 ||((i == mBoardX-1 && i2 == 0) || (i == mBoardX-1 && i2 == 1) || (i == mBoardX-2 && i2 == 0) || (i == mBoardX-2 && i2 == 1))){
                     btn.setBackgroundColor(mContext.getResources().getColor(R.color.colorAi));
                     gameBoard[i][i2] = 2;
                 }
-
 
                 // 게임 초기 점수
                 if(gameBoard[i][i2] == 1){
@@ -122,7 +128,6 @@ public class MainPresenter implements MainConstance.Presenter{
 
             }
             mGameMainLayout.addView(childLayout);
-
 
             mInterfaceViews.showView(firstPlayer, gamePointsTmp, gamePlayFlag, false);
         }
@@ -154,8 +159,6 @@ public class MainPresenter implements MainConstance.Presenter{
             int y = Integer.parseInt(tmp[1]);
 
             int player = gameBoard[x][y];
-
-
 
             if(firstPlayer == false){
                 // P1
@@ -214,13 +217,10 @@ public class MainPresenter implements MainConstance.Presenter{
                         move2CheckFlag = false;
 
                         gamePlayCheck(x, y);
-
-
                     }
                 }
             }else {
                 // P2
-
                 if(mModel.getStringPref(mContext, mModel.getKeyPlayer()).equals(mModel.getValuePlayer())){
                     nonSelectColorReSet("Player2");
 
@@ -296,9 +296,7 @@ public class MainPresenter implements MainConstance.Presenter{
         Log.d("#@#", "X : " + x + " | Y : " + y);
 
         boolean area1Check = false, area2Check = false;
-
         gamePlayFlag = false;
-
         boolean notMove = false;
 
         // 이동 불가능한 지역이 있는지 체크
@@ -347,7 +345,6 @@ public class MainPresenter implements MainConstance.Presenter{
                 moveCheckFlag = true;
             }
         }
-
         if(x-1 != -1){
             if(gameBoard[x-1][y] == 0) {
                 selectMoveColor(x - 1, y, color);
@@ -362,7 +359,6 @@ public class MainPresenter implements MainConstance.Presenter{
                 moveCheckFlag = true;
             }
         }
-
         if(x+1 < mBoardX && y+1 < mBoardY){
             if(gameBoard[x+1][y+1] == 0) {
                 selectMoveColor(x + 1, y + 1, color);
